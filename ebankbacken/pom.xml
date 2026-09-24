@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.ebank</groupId>
-    <artifactId>ebankbacken</artifactId>
+    <artifactId>ebankbackend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ebankbacken</name>
     <description>ebankbacken</description>

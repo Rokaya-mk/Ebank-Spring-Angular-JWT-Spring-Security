@@ -1,4 +1,4 @@
-package org.ebank.ebankbacken;
+package org.ebank.ebankbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

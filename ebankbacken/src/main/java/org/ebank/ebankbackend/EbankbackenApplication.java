@@ -1,4 +1,4 @@
-package org.ebank.ebankbacken;
+package org.ebank.ebankbackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
