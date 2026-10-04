@@ -1,7 +1,11 @@
 package org.ebank.ebankbackend.mappers;
 
+import org.ebank.ebankbackend.dto.CurrentBankAccountDTO;
 import org.ebank.ebankbackend.dto.CustomerDTO;
+import org.ebank.ebankbackend.dto.SavingBankAccountDTO;
+import org.ebank.ebankbackend.entities.CurrentAccount;
 import org.ebank.ebankbackend.entities.Customer;
+import org.ebank.ebankbackend.entities.SavingAccount;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +27,31 @@ public class BankAccountMapperImp {
         Customer customer= new Customer();
         BeanUtils.copyProperties(customerDTO,customer);
         return  customer;
+    }
+
+    public SavingBankAccountDTO fromSavingBankAccount(SavingAccount savingAccount){
+        SavingBankAccountDTO savingBankAccountDTO = new SavingBankAccountDTO();
+        BeanUtils.copyProperties(savingAccount,savingBankAccountDTO);
+
+        return  savingBankAccountDTO;
+    }
+
+    public SavingAccount fromSavingBankAccountDTO(SavingBankAccountDTO savingAccountDTO){
+        SavingAccount savingAccount = new SavingAccount();
+        BeanUtils.copyProperties(savingAccountDTO,savingAccount);
+        return savingAccount;
+    }
+
+    public CurrentBankAccountDTO fromCurrentBankAccount(CurrentAccount currentAccount){
+        CurrentBankAccountDTO currentBankAccountDTO = new CurrentBankAccountDTO();
+        BeanUtils.copyProperties(currentAccount,currentBankAccountDTO);
+
+        return  currentBankAccountDTO;
+    }
+
+    public CurrentAccount fromCurrentBankAccountDTO(CurrentBankAccountDTO currentBankAccountDTO){
+        CurrentAccount currentAccount = new CurrentAccount();
+        BeanUtils.copyProperties(currentBankAccountDTO,currentAccount);
+        return currentAccount;
     }
 }
