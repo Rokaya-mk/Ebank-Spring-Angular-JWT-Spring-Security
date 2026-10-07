@@ -8,7 +8,7 @@ import org.ebank.ebankbackend.enums.AccountStatus;
 
 import java.util.Date;
 
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data
 public class BankAccountDTO {
 
     private String id;
@@ -16,6 +16,7 @@ public class BankAccountDTO {
     private Date createdAt;
     private AccountStatus status;
     private CustomerDTO customerDTO;
+    private String type;
 
 
 

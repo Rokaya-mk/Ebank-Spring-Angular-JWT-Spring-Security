@@ -1,9 +1,6 @@
 package org.ebank.ebankbackend.services;
 
-import org.ebank.ebankbackend.dto.BankAccountDTO;
-import org.ebank.ebankbackend.dto.CurrentBankAccountDTO;
-import org.ebank.ebankbackend.dto.CustomerDTO;
-import org.ebank.ebankbackend.dto.SavingBankAccountDTO;
+import org.ebank.ebankbackend.dto.*;
 import org.ebank.ebankbackend.entities.BankAccount;
 import org.ebank.ebankbackend.entities.CurrentAccount;
 import org.ebank.ebankbackend.entities.Customer;
@@ -33,4 +30,8 @@ public interface BankAccountService {
     CustomerDTO updateCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer(Long customerId);
+
+    List<AccountOperationDTO> accountHitory(String accountId);
+
+    AccountHistoryDTO getAccountHistory(String accountId, int page, int size) throws BankAccountNotFoundException;
 }

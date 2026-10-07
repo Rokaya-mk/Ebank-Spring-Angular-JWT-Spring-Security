@@ -47,19 +47,20 @@ public class EbankbackenApplication {
                 try {
                     bankAccountService.saveCurrentBankAccount(Math.random()*40000,3000,customer.getId());
                     bankAccountService.saveCurrentBankAccount(Math.random()*2000,10,customer.getId());
-                    bankAccountService.bankAccountList().forEach(account->{
-                        for (int i=0 ;i<10 ; i++){
-                            try {
-                                bankAccountService.credit(account.getId(),1000+Math.random()*3000,"Credit");
-                                bankAccountService.debit(account.getId(),100+Math.random()*2000,"Debit");
 
-                            } catch (BankAccountNotFoundException |BalanceNotSufficientException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
                 } catch (CustomerNotFoundException e) {
                     e.printStackTrace();
+                }
+            });
+            bankAccountService.bankAccountList().forEach(account->{
+                for (int i=0 ;i<10 ; i++){
+                    try {
+                        bankAccountService.credit(account.getId(),1000+Math.random()*3000,"Credit");
+                        bankAccountService.debit(account.getId(),100+Math.random()*2000,"Debit");
+
+                    } catch (BankAccountNotFoundException |BalanceNotSufficientException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         };

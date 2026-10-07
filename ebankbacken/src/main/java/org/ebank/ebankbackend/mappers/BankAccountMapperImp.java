@@ -1,8 +1,10 @@
 package org.ebank.ebankbackend.mappers;
 
+import org.ebank.ebankbackend.dto.AccountOperationDTO;
 import org.ebank.ebankbackend.dto.CurrentBankAccountDTO;
 import org.ebank.ebankbackend.dto.CustomerDTO;
 import org.ebank.ebankbackend.dto.SavingBankAccountDTO;
+import org.ebank.ebankbackend.entities.AccountOperation;
 import org.ebank.ebankbackend.entities.CurrentAccount;
 import org.ebank.ebankbackend.entities.Customer;
 import org.ebank.ebankbackend.entities.SavingAccount;
@@ -32,6 +34,8 @@ public class BankAccountMapperImp {
     public SavingBankAccountDTO fromSavingBankAccount(SavingAccount savingAccount){
         SavingBankAccountDTO savingBankAccountDTO = new SavingBankAccountDTO();
         BeanUtils.copyProperties(savingAccount,savingBankAccountDTO);
+        savingBankAccountDTO.setType(savingAccount.getClass().getSimpleName());
+        savingBankAccountDTO.setCustomerDTO(fromCustomer(savingAccount.getCustomer()));
 
         return  savingBankAccountDTO;
     }
@@ -45,7 +49,8 @@ public class BankAccountMapperImp {
     public CurrentBankAccountDTO fromCurrentBankAccount(CurrentAccount currentAccount){
         CurrentBankAccountDTO currentBankAccountDTO = new CurrentBankAccountDTO();
         BeanUtils.copyProperties(currentAccount,currentBankAccountDTO);
-
+        currentBankAccountDTO.setType(currentAccount.getClass().getSimpleName());
+        currentBankAccountDTO.setCustomerDTO(fromCustomer(currentAccount.getCustomer()));
         return  currentBankAccountDTO;
     }
 
@@ -53,5 +58,12 @@ public class BankAccountMapperImp {
         CurrentAccount currentAccount = new CurrentAccount();
         BeanUtils.copyProperties(currentBankAccountDTO,currentAccount);
         return currentAccount;
+    }
+
+    public AccountOperationDTO fromAccountOperation(AccountOperation accountOperation){
+        AccountOperationDTO accountOperationDTO = new AccountOperationDTO();
+        BeanUtils.copyProperties(accountOperation,accountOperationDTO);
+
+        return accountOperationDTO;
     }
 }
